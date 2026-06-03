@@ -1,0 +1,526 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Time Table styling - Clean & Fully Responsive */
+.timetable-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+}
+
+.timetable-layout {
+    display: flex;
+}
+
+.timetable-content {
+    flex: 1;
+    padding: 20px 28px;
+}
+
+/* Back Navigation */
+.back-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #1b4573;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: rgba(27, 69, 115, 0.08);
+}
+
+.back-nav:hover {
+    background: rgba(27, 69, 115, 0.15);
+    transform: translateX(-2px);
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-icon {
+    width: 48px;
+    height: 48px;
+    background: #1b4573;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(27, 69, 115, 0.2);
+}
+
+.page-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 2px 0;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+.current-day-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: white;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1b4573;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Day Selector Wrapper */
+.day-selector-wrapper {
+    background: white;
+    border-radius: 16px;
+    padding: 6px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.day-selector {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.day-pill {
+    flex: 1;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 8px 4px;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.day-pill .day-short {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.day-pill .day-full {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+.day-pill .today-dot {
+    font-size: 6px;
+    color: #10b981;
+    margin-top: 2px;
+}
+
+.day-pill.active {
+    background: #1b4573;
+    box-shadow: 0 2px 8px rgba(27, 69, 115, 0.25);
+}
+
+.day-pill.active .day-short,
+.day-pill.active .day-full {
+    color: white;
+}
+
+.day-pill.today:not(.active) {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.day-pill.today:not(.active) .day-short {
+    color: #10b981;
+}
+
+.day-pill:hover:not(.active) {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+}
+
+/* Schedule Stats */
+.schedule-stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.stat-card-ti {
+    background: white;
+    padding: 8px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    min-width: 90px;
+}
+
+.stat-value-ti {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b4573;
+}
+
+.stat-label-ti {
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* Schedule Grid - Card Design */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+}
+
+.schedule-card {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 16px;
+    transition: all 0.25s ease;
+    border: 1px solid #e2e8f0;
+    animation: fadeInUp 0.3s ease forwards;
+    opacity: 0;
+    transform: translateY(15px);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.schedule-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.12);
+    border-color: #cbd5e1;
+}
+
+/* Card Main Layout */
+.card-main {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Period Badge - Replaces the BookOpen Icon */
+.period-badge-main {
+    width: 48px;
+    height: 48px;
+    background: #1b4573;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.period-number-large {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+}
+
+/* Card Info Section */
+.card-info {
+    flex: 1;
+}
+
+.subject-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.teacher-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.teacher-name svg {
+    opacity: 0.6;
+}
+
+/* Desktop Time & Room */
+.time-room-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 85px;
+}
+
+.time-info,
+.room-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 16px;
+    white-space: nowrap;
+}
+
+.time-info {
+    font-weight: 500;
+    color: #1b4573;
+    background: #eef2ff;
+}
+
+.room-info {
+    color: #475569;
+    background: #f8fafc;
+}
+
+/* Mobile Time & Room (Hidden on Desktop) */
+.time-room-mobile {
+    display: none;
+}
+
+/* Holiday Card */
+.holiday-card {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.holiday-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.holiday-card h3 {
+    font-size: 24px;
+    color: #92400e;
+    margin-bottom: 6px;
+}
+
+.holiday-card p {
+    color: #b45309;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .timetable-content {
+        padding: 16px 20px;
+    }
+
+    .day-pill .day-full {
+        display: none;
+    }
+
+    .day-pill {
+        min-width: 55px;
+    }
+
+    .schedule-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .timetable-content {
+        padding: 14px 16px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+    .day-selector {
+        gap: 3px;
+    }
+
+    .day-pill {
+        min-width: 48px;
+        padding: 6px 2px;
+    }
+
+    .day-pill .day-short {
+        font-size: 12px;
+    }
+
+    .schedule-stats {
+        gap: 10px;
+    }
+
+    .stat-card-ti {
+        flex: 1;
+        padding: 6px 12px;
+        min-width: auto;
+    }
+
+    .stat-value-ti {
+        font-size: 18px;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Hide desktop time-room, show mobile version */
+    .time-room-desktop {
+        display: none;
+    }
+
+    .time-room-mobile {
+        display: flex;
+        gap: 8px;
+        margin-top: 6px;
+        flex-wrap: wrap;
+    }
+
+    .time-info-mobile,
+    .room-info-mobile {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        padding: 2px 8px;
+        border-radius: 14px;
+    }
+
+    .time-info-mobile {
+        font-weight: 500;
+        color: #1b4573;
+        background: #eef2ff;
+    }
+
+    .room-info-mobile {
+        color: #475569;
+        background: #f8fafc;
+    }
+
+    .period-badge-main {
+        width: 44px;
+        height: 44px;
+    }
+
+    .period-number-large {
+        font-size: 18px;
+    }
+
+    .subject-name {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timetable-content {
+        padding: 12px;
+    }
+
+    .back-nav {
+        margin-bottom: 14px;
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .header-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .page-header h1 {
+        font-size: 18px;
+    }
+
+    .page-header p {
+        font-size: 11px;
+    }
+
+    .current-day-badge {
+        padding: 4px 12px;
+        font-size: 11px;
+    }
+
+    .day-pill {
+        min-width: 42px;
+        padding: 5px 2px;
+    }
+
+    .day-pill .day-short {
+        font-size: 11px;
+    }
+
+    .schedule-card {
+        padding: 12px;
+    }
+
+    .card-main {
+        gap: 10px;
+    }
+
+    .period-badge-main {
+        width: 40px;
+        height: 40px;
+    }
+
+    .period-number-large {
+        font-size: 16px;
+    }
+
+    .subject-name {
+        font-size: 14px;
+    }
+
+    .teacher-name {
+        font-size: 11px;
+    }
+
+    .time-info-mobile,
+    .room-info-mobile {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+}

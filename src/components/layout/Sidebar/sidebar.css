@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: #edeeee;
+    color: #0f172a;
+    padding: 20px;
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+/* School name */
+.school-name {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1b4573;
+}
+
+/* Student profile */
+.student-profile {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.student-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #1b4573;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.student-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.student-class {
+    font-size: 14px;
+    color: #1b0524;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.remove-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    color: #334155;
+    font-weight: 500;
+}
+
+/* ✅ UNIFORM ICON COLOR - sabhi icons same color */
+.menu li svg {
+    width: 20px;
+    height: 20px;
+    color: #1b4573;
+    /* ✅ Same color for all icons */
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* ✅ HOVER EFFECT - text aur icon dono white */
+.menu li:hover {
+    background: #1b4573;
+    color: white;
+}
+
+.menu li:hover svg {
+    color: white;
+    /* ✅ Icon bhi white on hover */
+}
+
+/* ✅ ACTIVE STATE - highlighted with different color */
+.menu li.active {
+    background: #1b4573;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(27, 69, 115, 0.3);
+}
+
+.menu li.active svg {
+    color: white;
+}
+
+/* Optional: left border indicator for active */
+/* .menu li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 20px;
+    background: #fbbf24;
+    border-radius: 0 3px 3px 0;
+} */
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 30px;
+    background: #f1f5f9;
+    min-height: calc(100vh - 70px);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 70px;
+        width: 260px;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

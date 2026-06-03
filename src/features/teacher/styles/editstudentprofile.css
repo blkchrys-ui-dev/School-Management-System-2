@@ -1,0 +1,399 @@
+/* editstudent.css - Styles for EditStudent component with edit-student- prefix */
+
+/* Reset and base styles for the edit student page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Back navigation */
+.back-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+
+.back-nav:hover {
+    color: #1b4573;
+}
+
+/* Headings */
+.edit-student-h2 {
+    font-size: 22px;
+    color: #1f2937;
+    margin: 15px 0 5px 0;
+}
+
+.edit-student-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+/* Form Container */
+.edit-student-form {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.edit-student-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Form Sections */
+.edit-student-form-section {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.edit-student-form-section:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.edit-student-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-student-section-header svg {
+    color: #1b4573;
+}
+
+.edit-student-section-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Form Grid */
+.edit-student-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Form Group */
+.edit-student-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.edit-student-form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.edit-student-label-icon {
+    color: #1b4573;
+}
+
+.edit-student-required {
+    color: #dc2626;
+    margin-left: 2px;
+}
+
+.edit-student-form-group input,
+.edit-student-form-group select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1f2937;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.edit-student-form-group input:focus,
+.edit-student-form-group select:focus {
+    outline: none;
+    border-color: #1b4573;
+    box-shadow: 0 0 0 3px rgba(27, 69, 115, 0.1);
+}
+
+.edit-student-form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.edit-student-form-group select {
+    cursor: pointer;
+}
+
+/* Read-only input fields (like admission number) */
+.edit-student-form-group input[readonly] {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    color: #6b7280;
+}
+
+/* Admission Input Group */
+.edit-student-admission-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-student-admission-input-group input {
+    flex: 1;
+}
+
+.edit-student-generate-btn {
+    padding: 10px 16px;
+    background: #1b4573;
+    color: white;
+    border: 1px solid #1b4573;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.edit-student-generate-btn:hover {
+    background: #153a5e;
+    border-color: #153a5e;
+}
+
+/* Class Section Preview */
+.edit-student-class-section-preview {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #e8f0fe;
+    border: 1px solid #1b4573;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #1b4573;
+    font-weight: 500;
+}
+
+.edit-student-class-section-preview svg {
+    flex-shrink: 0;
+}
+
+/* Student ID Badge */
+.edit-student-id-badge {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.edit-student-id-badge span:first-child {
+    font-size: 13px;
+    color: #92400e;
+    font-weight: 500;
+}
+
+.edit-student-id-badge span:last-child {
+    font-size: 14px;
+    font-weight: 600;
+    color: #b45309;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+/* Form Actions */
+.edit-student-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.edit-student-btn-cancel,
+.edit-student-btn-submit,
+.edit-student-btn-delete {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-student-btn-cancel {
+    background: white;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+}
+
+.edit-student-btn-cancel:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+.edit-student-btn-submit {
+    background: #1b4573;
+    color: white;
+    border: 1px solid #1b4573;
+}
+
+.edit-student-btn-submit:hover {
+    background: #153a5e;
+    border-color: #153a5e;
+    box-shadow: 0 4px 12px rgba(27, 69, 115, 0.2);
+}
+
+.edit-student-btn-delete {
+    background: white;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    margin-right: auto;
+}
+
+.edit-student-btn-delete:hover {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #b91c1c;
+}
+
+/* Loading State */
+.edit-student-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.edit-student-error {
+    margin: 20px;
+    padding: 15px 20px;
+    background: #fee2e2;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    color: #991b1b;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.edit-student-error button {
+    margin-left: auto;
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .edit-student-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-student-form {
+        padding: 15px;
+    }
+
+    .edit-student-form-section {
+        padding: 15px;
+    }
+
+    .edit-student-form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .edit-student-btn-cancel,
+    .edit-student-btn-submit,
+    .edit-student-btn-delete {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .edit-student-btn-delete {
+        margin-right: 0;
+    }
+
+    .edit-student-admission-input-group {
+        flex-direction: column;
+    }
+
+    .edit-student-generate-btn {
+        width: 100%;
+    }
+
+    .edit-student-section-header h3 {
+        font-size: 15px;
+    }
+
+    .edit-student-h2 {
+        font-size: 20px;
+    }
+
+    .edit-student-id-badge {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-student-form {
+        padding: 12px;
+    }
+
+    .edit-student-form-section {
+        padding: 12px;
+    }
+
+    .edit-student-form-group input,
+    .edit-student-form-group select {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .edit-student-section-header {
+        margin-bottom: 15px;
+    }
+
+    .edit-student-class-section-preview {
+        font-size: 12px;
+        flex-wrap: wrap;
+    }
+}

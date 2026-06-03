@@ -1,0 +1,929 @@
+/* noticeteacher.css - with t-n prefix */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.t-n-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+.t-n-layout {
+    display: flex;
+    flex: 1;
+}
+
+.t-n-content {
+    flex: 1;
+    padding: 24px 32px;
+    overflow-x: auto;
+}
+
+/* Back Navigation */
+.t-n-back-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #5b6e8c;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    width: auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.t-n-back-nav:hover {
+    color: #1b4573;
+    background: #f1f5f9;
+}
+
+/* Notice Header */
+.t-n-notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.t-n-notice-title-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.t-n-notice-icon-wrapper {
+    background: linear-gradient(135deg, #1b4573 0%, #2c5a8c 100%);
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 6px 14px rgba(27, 69, 115, 0.2);
+}
+
+.t-n-notice-title-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.t-n-notice-title-section p {
+    font-size: 14px;
+    color: #5b6e8c;
+    margin: 0;
+}
+
+.t-n-add-notice-btn {
+    background: linear-gradient(135deg, #1b4573 0%, #2c5a8c 100%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(27, 69, 115, 0.2);
+}
+
+.t-n-add-notice-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 69, 115, 0.25);
+    background: linear-gradient(135deg, #143a5e 0%, #1f4a73 100%);
+}
+
+/* Statistics Cards */
+.t-n-notice-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.t-n-stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e9eef3;
+    flex: 1;
+    min-width: 140px;
+    transition: all 0.2s ease;
+}
+
+.t-n-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.t-n-stat-icon {
+    background: #eef2ff;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1b4573;
+}
+
+.t-n-stat-info h4 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.t-n-stat-info p {
+    font-size: 13px;
+    color: #5b6e8c;
+    margin: 4px 0 0;
+    font-weight: 500;
+}
+
+/* Schedule Section */
+.t-n-schedule-section {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e9eef3;
+}
+
+/* Notice Container */
+.t-n-notice-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Notice Card */
+.t-n-notice-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px 24px;
+    border: 1px solid #eef2f6;
+    transition: all 0.25s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.t-n-notice-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: #fefefe;
+}
+
+/* Left Section */
+.t-n-notice-left {
+    display: flex;
+    gap: 18px;
+    flex: 1;
+}
+
+/* Dot/Icon */
+.t-n-notice-dot {
+    background: linear-gradient(145deg, #1b4573, #143a5e);
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(27, 69, 115, 0.2);
+}
+
+/* Text Container */
+.t-n-notice-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Notice Title Row */
+.t-n-notice-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.t-n-notice-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+/* Priority Badge */
+.t-n-priority-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.t-n-priority-high {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.t-n-priority-medium {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.t-n-priority-low {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+/* Description */
+.t-n-notice-description {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Meta Grid */
+.t-n-notice-meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.t-n-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #5b6e8c;
+    background: #f8fafc;
+    padding: 4px 10px;
+    border-radius: 30px;
+}
+
+.t-n-meta-category {
+    font-size: 11px;
+    font-weight: 600;
+    background: #eef2ff;
+    color: #1b4573;
+    padding: 4px 12px;
+    border-radius: 30px;
+    letter-spacing: 0.3px;
+}
+
+/* Notice Actions */
+.t-n-notice-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.t-n-edit-btn,
+.t-n-delete-btn {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #5b6e8c;
+}
+
+.t-n-edit-btn:hover {
+    background: #eef2ff;
+    color: #1b4573;
+}
+
+.t-n-delete-btn:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+/* Empty State */
+.t-n-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+}
+
+.t-n-empty-state svg {
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.t-n-empty-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #475569;
+    margin: 0 0 8px;
+}
+
+.t-n-empty-state p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Modal Styles */
+/* .t-n-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.t-n-modal-container {
+    background: white;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: t-n-modalSlideIn 0.2s ease-out;
+}
+
+@keyframes t-n-modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.t-n-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.t-n-modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.t-n-close-modal {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    color: #5b6e8c;
+    transition: all 0.2s;
+}
+
+.t-n-close-modal:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.t-n-modal-body {
+    padding: 24px;
+}
+
+.t-n-form-group {
+    margin-bottom: 18px;
+}
+
+.t-n-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.t-n-form-group input,
+.t-n-form-group select,
+.t-n-form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s;
+    background: #ffffff;
+}
+
+.t-n-form-group input:focus,
+.t-n-form-group select:focus,
+.t-n-form-group textarea:focus {
+    outline: none;
+    border-color: #1b4573;
+    box-shadow: 0 0 0 3px rgba(27, 69, 115, 0.1);
+}
+
+.t-n-form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.t-n-form-row .t-n-form-group {
+    flex: 1;
+}
+
+.t-n-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid #eef2f6;
+}
+
+.t-n-cancel-btn,
+.t-n-submit-btn {
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.t-n-cancel-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.t-n-cancel-btn:hover {
+    background: #e2e8f0;
+}
+
+.t-n-submit-btn {
+    background: linear-gradient(135deg, #1b4573, #2c5a8c);
+    color: white;
+    box-shadow: 0 2px 6px rgba(27, 69, 115, 0.2);
+}
+
+.t-n-submit-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+} */
+
+/* Modal Styles - Scrollbar Fixed Inside */
+.t-n-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.t-n-modal-container {
+    background: white;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    /* IMPORTANT: flex column for proper structure */
+    overflow: hidden;
+    /* IMPORTANT: hide overflow on container */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: t-n-modalSlideIn 0.2s ease-out;
+}
+
+@keyframes t-n-modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.t-n-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eef2f6;
+    flex-shrink: 0;
+    /* Prevent header from shrinking */
+    background: linear-gradient(135deg, #1b4573, #2c5a8c);
+
+}
+
+.t-n-modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    color: white;
+}
+
+.t-n-close-modal {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    color: #5b6e8c;
+    transition: all 0.2s;
+}
+
+.t-n-close-modal:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+/* SCROLLABLE BODY - Scrollbar inside modal */
+.t-n-modal-body {
+    padding: 24px;
+    flex: 1;
+    /* Take remaining space */
+    overflow-y: auto;
+    /* Scroll inside body */
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar for modal body */
+.t-n-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.t-n-modal-body::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.t-n-modal-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.t-n-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Firefox scrollbar */
+.t-n-modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.t-n-form-group {
+    margin-bottom: 18px;
+}
+
+.t-n-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.t-n-form-group input,
+.t-n-form-group select,
+.t-n-form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s;
+    background: #ffffff;
+}
+
+.t-n-form-group input:focus,
+.t-n-form-group select:focus,
+.t-n-form-group textarea:focus {
+    outline: none;
+    border-color: #1b4573;
+    box-shadow: 0 0 0 3px rgba(27, 69, 115, 0.1);
+}
+
+.t-n-form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.t-n-form-row .t-n-form-group {
+    flex: 1;
+}
+
+.t-n-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid #eef2f6;
+    flex-shrink: 0;
+    /* Prevent footer from shrinking */
+    background: white;
+    /* Keep footer background */
+}
+
+.t-n-cancel-btn,
+.t-n-submit-btn {
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.t-n-cancel-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.t-n-cancel-btn:hover {
+    background: #e2e8f0;
+}
+
+.t-n-submit-btn {
+    background: linear-gradient(135deg, #1b4573, #2c5a8c);
+    color: white;
+    box-shadow: 0 2px 6px rgba(27, 69, 115, 0.2);
+}
+
+.t-n-submit-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .t-n-modal-container {
+        max-width: 95%;
+        max-height: 85vh;
+        border-radius: 22px;
+    }
+
+    .t-n-modal-header {
+        padding: 16px 18px;
+    }
+
+    .t-n-modal-body {
+        padding: 18px;
+    }
+
+    .t-n-modal-footer {
+        padding: 12px 18px 18px;
+    }
+
+    .t-n-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .t-n-modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .t-n-modal-container {
+        max-width: 100%;
+        max-height: 92vh;
+        border-radius: 22px 22px 0 0;
+    }
+
+    .t-n-modal-header h3 {
+        font-size: 18px;
+    }
+
+    .t-n-modal-body {
+        padding: 14px;
+    }
+
+    .t-n-modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .t-n-cancel-btn,
+    .t-n-submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .t-n-form-group input,
+    .t-n-form-group select,
+    .t-n-form-group textarea {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .t-n-content {
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .t-n-content {
+        padding: 16px 20px;
+    }
+
+    .t-n-notice-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .t-n-notice-card {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .t-n-notice-left {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .t-n-notice-dot {
+        width: 40px;
+        height: 40px;
+    }
+
+    .t-n-notice-title {
+        font-size: 15px;
+    }
+
+    .t-n-notice-meta-grid {
+        gap: 10px;
+    }
+
+    .t-n-notice-actions {
+        align-self: flex-end;
+    }
+
+    .t-n-stat-card {
+        min-width: calc(50% - 10px);
+    }
+
+    .t-n-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .t-n-notice-stats {
+        gap: 12px;
+    }
+
+    .t-n-stat-card {
+        padding: 14px 16px;
+        min-width: 100%;
+    }
+
+    .t-n-schedule-section {
+        padding: 16px;
+    }
+
+    .t-n-modal-container {
+        max-width: 95%;
+        border-radius: 24px;
+    }
+
+    .t-n-modal-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .t-n-content {
+        padding: 12px 14px;
+    }
+
+    .t-n-notice-title-section h2 {
+        font-size: 22px;
+    }
+
+    .t-n-notice-icon-wrapper {
+        width: 44px;
+        height: 44px;
+    }
+
+    .t-n-notice-card {
+        padding: 14px;
+    }
+
+    .t-n-notice-title {
+        font-size: 14px;
+    }
+
+    .t-n-notice-description {
+        font-size: 13px;
+    }
+
+    .t-n-meta-item,
+    .t-n-meta-category {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+
+    .t-n-back-nav {
+        margin-bottom: 16px;
+        font-size: 13px;
+    }
+
+    .t-n-add-notice-btn span {
+        display: none;
+    }
+
+    .t-n-add-notice-btn {
+        padding: 10px 14px;
+    }
+
+    .t-n-add-notice-btn svg {
+        margin: 0;
+    }
+
+    .t-n-modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .t-n-cancel-btn,
+    .t-n-submit-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Back navigation */
+.back-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+
+.back-nav:hover {
+    color: #1b4573;
+}
+
+.addteacher-h2 {
+    font-size: 22px;
+    color: #1f2937;
+    margin: 10px 0 5px 0;
+}
+
+.addteacher-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+/* Form Container */
+.teacher-form {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Form Sections */
+.form-section {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.form-section:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header svg {
+    color: #1b4573;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.label-icon {
+    color: #1b4573;
+}
+
+.required {
+    color: #dc2626;
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1f2937;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1b4573;
+    box-shadow: 0 0 0 3px rgba(27, 69, 115, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* Multi-select */
+.multi-select {
+    min-height: 100px;
+    padding: 8px;
+}
+
+.multi-select option {
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 2px 0;
+}
+
+.multi-select option:checked {
+    background: #1b4573;
+    color: white;
+}
+
+.help-text {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 2px;
+    font-style: italic;
+}
+
+/* Selected Tags */
+.selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #e8f0fe;
+    color: #1b4573;
+    border: 1px solid #1b4573;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background: #1b4573;
+    color: white;
+}
+
+.tag svg {
+    flex-shrink: 0;
+}
+
+.tag-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: rgba(27, 69, 115, 0.1);
+    color: #1b4573;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-left: 2px;
+}
+
+.tag-remove:hover {
+    background: #dc2626;
+    color: white;
+}
+
+/* ID Input Group */
+.id-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.id-input-group input {
+    flex: 1;
+}
+
+.generate-btn {
+    padding: 10px 16px;
+    background: #1b4573;
+    color: white;
+    border: 1px solid #1b4573;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.generate-btn:hover {
+    background: #153a5e;
+    border-color: #153a5e;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.btn-cancel,
+.btn-submit {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cancel {
+    background: white;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+}
+
+.btn-cancel:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+.btn-submit {
+    background: #1b4573;
+    color: white;
+    border: 1px solid #1b4573;
+}
+
+.btn-submit:hover {
+    background: #153a5e;
+    border-color: #153a5e;
+    box-shadow: 0 4px 12px rgba(27, 69, 115, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: 1;
+    }
+
+    .teacher-form {
+        padding: 15px;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .id-input-group {
+        flex-direction: column;
+    }
+
+    .generate-btn {
+        width: 100%;
+    }
+
+    .section-header h3 {
+        font-size: 15px;
+    }
+
+    .addteacher-h2 {
+        font-size: 20px;
+    }
+
+    .selected-tags {
+        gap: 6px;
+    }
+
+    .tag {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .teacher-form {
+        padding: 12px;
+    }
+
+    .form-section {
+        padding: 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .section-header {
+        margin-bottom: 15px;
+    }
+
+    .multi-select {
+        min-height: 80px;
+    }
+
+    .form-container {
+        gap: 20px;
+    }
+}

@@ -1,0 +1,132 @@
+/* HEADER - Updated with logout button */
+.header {
+    height: 80px;
+    background-color: #1b4573;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger button */
+.menu-btn {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Logo + Title */
+.img-hd {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.img-hd img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-hd h2 {
+    color: white;
+    margin: 0;
+}
+
+/* Logout Button with Icon */
+.logout-btn {
+    background-color: transparent;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(4px);
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+/* Layout */
+.layout {
+    display: flex;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .img-hd h2 {
+        font-size: 18px;
+    }
+
+    .img-hd img {
+        height: 45px;
+        width: 45px;
+    }
+
+    .logout-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+    .logout-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 0 15px;
+        height: 70px;
+    }
+
+    .img-hd h2 {
+        font-size: 14px;
+    }
+
+    .img-hd img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .logout-btn {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+
+    .logout-btn span {
+        display: inline;
+        /* Keep text on mobile */
+    }
+
+    .logout-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}

@@ -1,0 +1,307 @@
+/* Academic Report CSS */
+.report-container {
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.report-layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+.report-content {
+    flex: 1;
+    padding: 24px 32px;
+    overflow-x: auto;
+    max-width: 850px;
+}
+
+/* Back Navigation */
+.back-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #1b4573;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background: rgba(27, 69, 115, 0.08);
+    border-radius: 12px;
+    width: fit-content;
+    transition: all 0.2s;
+}
+
+.back-nav:hover {
+    background: rgba(27, 69, 115, 0.15);
+    transform: translateX(-2px);
+}
+
+/* Page Header */
+.page-header-ar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-icon {
+    width: 52px;
+    height: 52px;
+    background: #1b4573;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.page-header-ar h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1b4573;
+    margin: 0 0 4px 0;
+}
+
+.page-header-ar p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-download,
+.btn-print {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-download {
+    background: #1b4573;
+    color: white;
+}
+
+.btn-download:hover {
+    background: #143a5e;
+    transform: translateY(-2px);
+}
+
+.btn-print {
+    background: white;
+    color: #1b4573;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-print:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+/* Exam Selector / Tabs */
+.exam-selector {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.exam-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: white;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.exam-btn.active {
+    background: #1b4573;
+    color: white;
+    border-color: #1b4573;
+    box-shadow: 0 4px 12px rgba(27, 69, 115, 0.3);
+}
+
+.exam-btn:hover:not(.active) {
+    background: #f1f5f9;
+    color: #1b4573;
+    transform: translateY(-2px);
+}
+
+/* Marks Table Wrapper */
+.marks-table-wrapper {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e5e7eb;
+}
+
+.table-header {
+    margin-bottom: 20px;
+}
+
+.table-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1b4573;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+}
+
+.marks-table th {
+    background: #f8fafc;
+    padding: 9px 3px;
+    text-align: left;
+    font-weight: 600;
+    color: #1b4573;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.marks-table td {
+    padding: 12px 0px;
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+}
+
+.marks-table .subject-name {
+    text-align: left;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.marks-table .total-marks {
+    font-weight: 600;
+    color: #1b4573;
+    background: #f0f4f8;
+}
+
+.marks-table .grade-cell {
+    font-weight: 600;
+    color: #10b981;
+}
+
+.marks-table .grand-total {
+    background: #fefce8;
+    border-top: 2px solid #e2e8f0;
+}
+
+.marks-table .grand-total td {
+    font-weight: 700;
+    color: #854d0e;
+}
+
+.marks-table .grand-total-value {
+    font-weight: 800;
+    color: #854d0e;
+    background: #fef3c7;
+}
+
+/* Note Box */
+.note-box {
+    margin-top: 20px;
+    padding: 16px 0px;
+    background: #f0fdf4;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.note-box p {
+    font-size: 14px;
+    color: #166534;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    word-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .report-content {
+        padding: 16px;
+    }
+
+    .page-header-ar h1 {
+        font-size: 22px;
+    }
+
+    .exam-selector {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .exam-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .action-buttons {
+        width: 100%;
+    }
+
+    .btn-download,
+    .btn-print {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media print {
+
+    .sidebar,
+    .back-nav,
+    .action-buttons,
+    .footer {
+        display: none !important;
+    }
+
+    .marks-table-wrapper {
+        break-inside: avoid;
+    }
+}
