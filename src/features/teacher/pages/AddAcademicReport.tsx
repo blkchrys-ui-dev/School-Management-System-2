@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import "./addacademicreport.css";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import "../styles/addacademicreport.css";
 import { useState, useEffect } from "react";
 import {
     ArrowLeft, Download, Printer, Calendar, BookOpen, Award,

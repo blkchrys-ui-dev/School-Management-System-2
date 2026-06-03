@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Info, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Header from '../../components/layout/Header/Header';
-import StudentSidebar from '../../components/StudentSidebar';
-import Footer from '../../components/layout/Footer/Footer';
-import '../../styling/notices.css';
+import Header from '../../../components/layout/Header/Header';
+import StudentSidebar from '../../../components/layout/Sidebar/StudentSidebar';
+import Footer from '../../../components/layout/Footer/Footer';
+import '../styles/notices.css';
 
 // ─────────────────────────────────────────────
 // Notices Page

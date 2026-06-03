@@ -1,7 +1,7 @@
-import Header from "../../components/layout/Header/Header";
-import Sidebar from "../../components/Sidebar";
-import Footer from "../../components/layout/Footer/Footer";
-import "../styling/academicReport.css";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import "../styles/academicReport.css";
 import { useState } from "react";
 import { ArrowLeft, FileText, Download, Printer, Calendar, BookOpen, Award, BarChart3, Notebook, Pin, NotebookIcon, Building, Book, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";

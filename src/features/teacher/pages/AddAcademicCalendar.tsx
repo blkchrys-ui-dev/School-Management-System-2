@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import {
     ArrowLeft, Calendar, ChevronLeft, ChevronRight,
@@ -11,7 +11,7 @@ import {
     Grid, List, X, Plus, Edit3, Trash2, Save, Check,
     BookOpenCheck, PartyPopper, CalendarSyncIcon, UsersRound
 } from "lucide-react";
-import "./addacademiccalendar.css";
+import "../styles/addacademiccalendar.css";
 
 const AddAcademicCalendar = () => {
     const navigate = useNavigate();

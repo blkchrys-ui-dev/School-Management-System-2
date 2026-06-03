@@ -1,130 +1,106 @@
-import React from 'react';
-
-
+import type { Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  GraduationCap,
   LogOut,
   Menu,
   UserCircle2,
-  GraduationCap,
+  X,
 } from 'lucide-react';
 
 import { useAuth } from '../../../context/AuthContext';
 
-import '../styling/header.css';
-import schoolLogo from '../assets/download.jpg';
-
-// ─────────────────────────────────────────────
-// Types
-// ─────────────────────────────────────────────
+import schoolLogo from '../../../assets/images/school-logo.jpg.jpg';
+import './header.css';
 
 interface HeaderProps {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-// ─────────────────────────────────────────────
-// Helpers
-// ─────────────────────────────────────────────
-
-const ROLE_LABELS: Record<string, string> = {
+const ROLE_LABELS = {
   student: 'Student',
   teacher: 'Teacher',
   admin: 'Super Admin',
-};
+} as const;
 
-// ─────────────────────────────────────────────
-// Component
-// ─────────────────────────────────────────────
-
-const Header = ({
-  open,
-  setOpen,
-}: HeaderProps): React.ReactElement => {
+const Header = ({ open, setOpen }: HeaderProps): React.ReactElement => {
   const navigate = useNavigate();
-
   const { user, logout } = useAuth();
 
+  const roleLabel = user?.role ? ROLE_LABELS[user.role] : 'Guest';
+  const displayName = user?.name?.trim() || 'Guest User';
+
   const handleSidebarToggle = (): void => {
-    setOpen((prev) => !prev);
+    setOpen(previousState => !previousState);
   };
 
   const handleLogout = (): void => {
     logout();
-    navigate('/login', {
-      replace: true,
-    });
+    navigate('/login', { replace: true });
   };
 
   return (
-    <header className="header">
-
-      {/* Left Section */}
-      <div className="header-left">
-
+    <header className="app-header">
+      <div className="app-header__left">
         <button
           type="button"
-          className="menu-btn"
+          className="app-header__menu-btn"
           onClick={handleSidebarToggle}
-          aria-label={open ? 'Close sidebar' : 'Open sidebar'}
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
+          aria-controls="app-sidebar"
         >
-          <Menu size={22} />
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <div className="header-brand">
+        <div className="app-header__brand" aria-label="Oasis Academy home">
           <img
             src={schoolLogo}
-            alt="Oasis Academy"
-            className="header-logo"
+            alt="Oasis Academy logo"
+            className="app-header__logo"
           />
 
-          <div className="header-brand-content">
-            <h2 className="header-title">
-              Oasis Academy
-            </h2>
-
-            <span className="header-subtitle">
-              School Management System
-            </span>
+          <div className="app-header__brand-text">
+            <span className="app-header__eyebrow">The Oasis Academy</span>
+            <h1 className="app-header__title">School Management System</h1>
           </div>
         </div>
-
       </div>
 
-      {/* Right Section */}
-      <div className="header-right">
+      <div className="app-header__right">
+        <div className="app-header__user" aria-label={`Signed in as ${displayName}`}>
+          {user?.profileImage ? (
+            <img
+              src={user.profileImage}
+              alt={`${displayName} profile`}
+              className="app-header__avatar-img"
+            />
+          ) : (
+            <div className="app-header__avatar" aria-hidden="true">
+              <UserCircle2 size={30} />
+            </div>
+          )}
 
-        <div className="header-user">
-
-          <div className="header-user-icon">
-            <UserCircle2 size={34} />
-          </div>
-
-          <div className="header-user-info">
-            <span className="header-user-name">
-              {user?.name || 'Guest User'}
-            </span>
-
-            <span className="header-user-role">
+          <div className="app-header__user-info">
+            <span className="app-header__user-name">{displayName}</span>
+            <span className="app-header__user-role">
               <GraduationCap size={14} />
-              {ROLE_LABELS[user?.role || 'student']}
+              {roleLabel}
             </span>
           </div>
-
         </div>
 
         <button
           type="button"
-          className="logout-btn"
+          className="app-header__logout-btn"
           onClick={handleLogout}
+          aria-label="Logout and return to login page"
         >
           <LogOut size={18} />
           <span>Logout</span>
         </button>
-
       </div>
-
     </header>
   );
 };

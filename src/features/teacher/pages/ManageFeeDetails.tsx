@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 import { useState, useEffect } from "react";
 import {
     ArrowLeft, Receipt, Calendar, IndianRupee, FileText,
@@ -9,7 +9,7 @@ import {
     Search, GraduationCap, User, Plus, Save, Edit3
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./managefeedetails.css";
+import "../styles/managefeedetails.css";
 
 const FeeDetails = () => {
     const navigate = useNavigate();

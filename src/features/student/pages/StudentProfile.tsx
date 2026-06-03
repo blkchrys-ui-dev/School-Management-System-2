@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import boy from "../assets/boy-img.jpg";
-import '../styling/studentProfile.css'
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import boy from "../../../assets/images/boy-img.jpg";
+import '../styles/studentProfile.css'
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";

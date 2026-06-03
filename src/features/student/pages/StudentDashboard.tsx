@@ -15,12 +15,12 @@ import {
   ClipboardList,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import Header from '../../components/layout/Header/Header';
-import StudentSidebar from '../../components/StudentSidebar';
-import Footer from '../../components/layout/Footer/Footer';
-import TodaySchedule from '../TodaySchedule';
-import '../../styling/studentdashboard.css';
+import { useAuth } from '../../../context/AuthContext';
+import Header from '../../../components/layout/Header/Header';
+import StudentSidebar from '../../../components/layout/Sidebar/StudentSidebar';
+import Footer from '../../../components/layout/Footer/Footer';
+import TodaySchedule from '../components/TodaySchedule';
+import '../styles/studentdashboard.css';
 
 // ─────────────────────────────────────────────
 //  Stat Card Type

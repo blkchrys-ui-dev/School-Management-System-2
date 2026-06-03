@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import './attendanceteach.css'
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import '../styles/attendanceteach.css'
 import { useState, useMemo } from "react";  // ✅ useEffect hatao, useMemo add karo
 import {
     ArrowLeft, Calendar as CalendarIcon, User, CheckCircle,

@@ -1,8 +1,8 @@
 import { ArrowLeft, UserPlus, School, GraduationCap, CalendarDays, Droplets, Hash } from "lucide-react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import "./addstudent.css";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import "../styles/addstudent.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

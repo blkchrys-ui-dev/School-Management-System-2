@@ -1,132 +1,237 @@
-/* HEADER - Updated with logout button */
-.header {
-    height: 80px;
-    background-color: #1b4573;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+.app-header {
+  align-items: center;
+  background: linear-gradient(135deg, #12345a 0%, #1b4573 52%, #2563eb 100%);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+  color: #ffffff;
+  display: flex;
+  gap: 18px;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 3vw, 32px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-/* Hamburger button */
-.menu-btn {
+.app-header__left,
+.app-header__right,
+.app-header__brand,
+.app-header__user,
+.app-header__user-role,
+.app-header__logout-btn,
+.app-header__menu-btn,
+.app-header__avatar {
+  align-items: center;
+  display: flex;
+}
+
+.app-header__left {
+  gap: 16px;
+  min-width: 0;
+}
+
+.app-header__right {
+  flex-shrink: 0;
+  gap: 14px;
+}
+
+.app-header__menu-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 44px;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  width: 44px;
+}
+
+.app-header__menu-btn:hover,
+.app-header__logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.app-header__brand {
+  gap: 12px;
+  min-width: 0;
+}
+
+.app-header__logo {
+  background: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+  flex: 0 0 auto;
+  height: 54px;
+  object-fit: cover;
+  width: 54px;
+}
+
+.app-header__brand-text {
+  min-width: 0;
+}
+
+.app-header__eyebrow {
+  color: #bfdbfe;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.app-header__title {
+  color: #ffffff;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-header__user {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  gap: 10px;
+  max-width: 280px;
+  min-width: 0;
+  padding: 8px 12px 8px 8px;
+}
+
+.app-header__avatar,
+.app-header__avatar-img {
+  border-radius: 50%;
+  flex: 0 0 auto;
+  height: 40px;
+  width: 40px;
+}
+
+.app-header__avatar {
+  background: rgba(255, 255, 255, 0.18);
+  justify-content: center;
+}
+
+.app-header__avatar-img {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  object-fit: cover;
+}
+
+.app-header__user-info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.app-header__user-name {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-header__user-role {
+  color: #dbeafe;
+  font-size: 0.78rem;
+  font-weight: 700;
+  gap: 5px;
+  line-height: 1.1;
+}
+
+.app-header__logout-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 769px) {
+  .app-header__menu-btn {
     display: none;
-    font-size: 26px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-right: 20px;
+  }
 }
 
-/* Logo + Title */
-.img-hd {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex: 1;
-}
-
-.img-hd img {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.img-hd h2 {
-    color: white;
-    margin: 0;
-}
-
-/* Logout Button with Icon */
-.logout-btn {
-    background-color: transparent;
-    color: white;
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    backdrop-filter: blur(4px);
-}
-
-.logout-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
-    transform: translateY(-1px);
-}
-
-.logout-btn:active {
-    transform: translateY(0);
-}
-
-/* Layout */
-.layout {
-    display: flex;
-}
-
-/* Responsive Design */
 @media screen and (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
+  .app-header {
+    height: 74px;
+  }
 
-    .img-hd h2 {
-        font-size: 18px;
-    }
+  .app-header__right {
+    gap: 8px;
+  }
 
-    .img-hd img {
-        height: 45px;
-        width: 45px;
-    }
+  .app-header__user {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
 
-    .logout-btn {
-        padding: 6px 14px;
-        font-size: 13px;
-    }
+  .app-header__user-info,
+  .app-header__eyebrow {
+    display: none;
+  }
 
-    .logout-btn svg {
-        width: 16px;
-        height: 16px;
-    }
+  .app-header__logo {
+    height: 46px;
+    width: 46px;
+  }
+
+  .app-header__title {
+    font-size: 1rem;
+    max-width: 44vw;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .header {
-        padding: 0 15px;
-        height: 70px;
-    }
+  .app-header {
+    gap: 10px;
+    height: 68px;
+    padding: 0 12px;
+  }
 
-    .img-hd h2 {
-        font-size: 14px;
-    }
+  .app-header__left {
+    gap: 10px;
+  }
 
-    .img-hd img {
-        height: 35px;
-        width: 35px;
-    }
+  .app-header__logo {
+    height: 38px;
+    width: 38px;
+  }
 
-    .logout-btn {
-        padding: 5px 12px;
-        font-size: 12px;
-    }
+  .app-header__title {
+    max-width: 38vw;
+  }
 
-    .logout-btn span {
-        display: inline;
-        /* Keep text on mobile */
-    }
+  .app-header__avatar,
+  .app-header__avatar-img {
+    height: 34px;
+    width: 34px;
+  }
 
-    .logout-btn svg {
-        width: 14px;
-        height: 14px;
-    }
+  .app-header__logout-btn {
+    min-height: 38px;
+    padding: 0 10px;
+  }
+
+  .app-header__logout-btn span {
+    display: none;
+  }
 }

@@ -1,0 +1,4 @@
+.ui-modal-backdrop { align-items: center; backdrop-filter: blur(6px); background: rgba(15,23,42,.52); display: flex; inset: 0; justify-content: center; padding: 20px; position: fixed; z-index: 1000; }
+.ui-modal { animation: modal-in .18s ease-out; background: #fff; border-radius: 22px; box-shadow: 0 30px 80px rgba(15,23,42,.25); max-width: 560px; overflow: hidden; width: 100%; }
+.ui-modal__header { align-items: center; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; padding: 18px 22px; }.ui-modal__header h2 { color: #0f172a; font-size: 1.2rem; margin: 0; }.ui-modal__body { padding: 22px; }.ui-modal__close { align-items: center; background: #f1f5f9; border: 0; border-radius: 10px; cursor: pointer; display: inline-flex; height: 34px; justify-content: center; width: 34px; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }

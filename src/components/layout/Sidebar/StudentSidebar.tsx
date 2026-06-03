@@ -17,8 +17,8 @@ import {
   UserCircle,
 } from 'lucide-react';
 
-import { useAuth } from '../context/AuthContext';
-import '../styling/sidebar.css';
+import { useAuth } from '../../../context/AuthContext';
+import './sidebar.css';
 
 // ─────────────────────────────────────────────
 // Types
@@ -132,6 +132,7 @@ const StudentSidebar = ({
 
   return (
     <aside
+      id="app-sidebar"
       className={`sidebar ${open ? 'open' : ''}`}
       aria-label="Student Navigation"
     >
