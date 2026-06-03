@@ -15,7 +15,7 @@ import {
   FaLinkedin,
 } from 'react-icons/fa';
 
-import '../styling/footer.css';
+import './footer.css';
 
 // ─────────────────────────────────────────────
 // Types

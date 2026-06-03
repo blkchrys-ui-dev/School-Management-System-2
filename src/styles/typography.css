@@ -1,0 +1,4 @@
+h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
+h1, h2, h3 { letter-spacing: -0.03em; }
+.page-title { color: #0f172a; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; margin-bottom: 8px; }
+.page-subtitle { color: #64748b; font-size: 1rem; line-height: 1.7; }

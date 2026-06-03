@@ -5,10 +5,10 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import Header from '../../components/layout/Header/Header';
-import StudentSidebar from '../../components/StudentSidebar';
-import Footer from '../../components/layout/Footer/Footer';
-import '../../styling/homework.css';
+import Header from '../../../components/layout/Header/Header';
+import Sidebar from '../../../components/layout/Sidebar/StudentSidebar';
+import Footer from '../../../components/layout/Footer/Footer';
+import '../styles/homework.css';
 
 const Homework = () => {
     const [timeFilter, setTimeFilter] = useState("Today");

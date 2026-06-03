@@ -17,8 +17,8 @@ import {
   UserCircle,
 } from 'lucide-react';
 
-import { useAuth } from '../context/AuthContext';
-import '../styling/sidebar.css';
+import { useAuth } from '../../../context/AuthContext';
+import './sidebar.css';
 
 // ─────────────────────────────────────────────
 // Types

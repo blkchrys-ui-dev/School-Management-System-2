@@ -1,0 +1,9 @@
+.ui-table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; box-shadow: 0 16px 38px rgba(15, 23, 42, .08); overflow: auto; }
+.ui-table { border-collapse: collapse; min-width: 640px; width: 100%; }
+.ui-table th { background: #f8fafc; color: #475569; font-size: .78rem; letter-spacing: .04em; padding: 16px; text-transform: uppercase; }
+.ui-table td { border-top: 1px solid #eef2f7; color: #334155; padding: 16px; }
+.ui-table tr:hover td { background: #f8fbff; }
+.ui-table-empty { color: #94a3b8; padding: 28px !important; text-align: center; }
+.align-left { text-align: left; }.align-center { text-align: center; }.align-right { text-align: right; }
+.ui-badge { border-radius: 999px; display: inline-flex; font-size: .76rem; font-weight: 800; padding: 6px 10px; }
+.ui-badge--blue { background: #dbeafe; color: #1d4ed8; }.ui-badge--green { background: #dcfce7; color: #15803d; }.ui-badge--yellow { background: #fef3c7; color: #b45309; }.ui-badge--red { background: #fee2e2; color: #b91c1c; }.ui-badge--purple { background: #ede9fe; color: #6d28d9; }.ui-badge--slate { background: #e2e8f0; color: #475569; }

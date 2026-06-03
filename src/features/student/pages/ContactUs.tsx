@@ -1,7 +1,7 @@
-import Header from "../../components/layout/Header/Header";
-import Sidebar from "../../components/Sidebar";
-import Footer from "../../components/layout/Footer/Footer";
-import "../styling/contactUs.css";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import "../styles/contactUs.css";
 import { useState } from "react";
 import {
     ArrowLeft,
@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import "../styling/style.css";
+import "../styles/style.css";
 
 // Note: Facebook, Twitter, Instagram, Linkedin icons are not available in lucide-react
 // Using alternative icons from lucide-react

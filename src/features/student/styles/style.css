@@ -1,0 +1,2 @@
+.student-page-card, .section-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 22px; box-shadow: 0 18px 42px rgba(15,23,42,.08); padding: 22px; }
+.form-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }

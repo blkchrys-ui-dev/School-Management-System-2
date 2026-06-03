@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./noticeteacher.css";
+import "../styles/noticeteacher.css";
 import {
     House, Bell, BookOpen, BookText, User, Clock, PanelLeftRightDashed,
     ReceiptIndianRupee, ChartColumn, Calendar, MessageSquare, Bus, Contact,
@@ -8,9 +8,9 @@ import {
     Clock as ClockIcon, MapPin, Users, FolderOpen
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Sidebar from '../../../components/layout/Sidebar/Sidebar';
+import Header from '../../../components/layout/Header/Header';
+import Footer from '../../../components/layout/Footer/Footer';
 
 const NoticeTeacher = () => {
     const [open, setOpen] = useState(false);

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Oasis Academy">
+  <rect width="64" height="64" rx="16" fill="#2563eb"/>
+  <path d="M12 26 32 14l20 12-20 12L12 26Z" fill="#fff"/>
+  <path d="M20 34v9c0 3 6 7 12 7s12-4 12-7v-9l-12 7-12-7Z" fill="#bfdbfe"/>
+  <path d="M52 27v13" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,10 +1,10 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 import { useState } from "react";
 import { ArrowLeft, Clock, User, Calendar, GraduationCap, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import '../styling/timeTable.css'
+import '../styles/timeTable.css'
 
 const TimeTable = () => {
     const navigate = useNavigate();

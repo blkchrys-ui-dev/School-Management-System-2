@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 import { useState } from "react";
 import {
     ArrowLeft, Receipt, Calendar, IndianRupee, FileText,
@@ -8,7 +8,7 @@ import {
     Clock, List, ChevronRight, Eye, History, X, ChevronDown
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "../styling/feeDetails.css";
+import "../styles/feeDetails.css";
 
 const FeeDetails = () => {
     const navigate = useNavigate();

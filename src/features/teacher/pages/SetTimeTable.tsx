@@ -1,13 +1,13 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 import { useState } from "react";
 import {
     ArrowLeft, Clock, User, MapPin,
     Plus, Save, Edit3, Trash2, X, Check, Settings, Copy
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import './settimetable.css'
+import '../styles/settimetable.css'
 
 const SetTimeTable = () => {
     const navigate = useNavigate();

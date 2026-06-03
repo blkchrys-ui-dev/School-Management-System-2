@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Header from '../../components/layout/Header/Header'
-import Sidebar from '../../components/Sidebar'
-import Footer from '../../components/layout/Footer/Footer'
+import Header from '../../../components/layout/Header/Header'
+import Sidebar from '../../../components/layout/Sidebar/StudentSidebar'
+import Footer from '../../../components/layout/Footer/Footer'
 import { Megaphone, ArrowLeft } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
-import "../styling/noticesDetails.css";
+import "../styles/noticesDetails.css";
 
 const NoticeDetails = () => {
     const navigate = useNavigate();

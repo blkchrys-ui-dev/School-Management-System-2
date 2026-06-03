@@ -1,7 +1,7 @@
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
 
-import '../styling/pageLoader.css';
+import './pageLoader.css';
 
 
 // ─────────────────────────────────────────────
