@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./teacherDash.css";
+import "../styles/teacherDash.css";
 import {
     House, Bell, BookOpen, BookText, User, Clock, PanelLeftRightDashed,
     ReceiptIndianRupee, ChartColumn, Calendar, MessageSquare, Bus, Contact,
@@ -10,9 +10,9 @@ import {
     User2Icon
 } from 'lucide-react';
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/Sidebar";
+import Footer from "../../../components/layout/Footer/Footer";
 
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(false);

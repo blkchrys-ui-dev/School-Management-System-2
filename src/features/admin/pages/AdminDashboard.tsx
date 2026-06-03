@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./principaldash.css";
+import "../styles/adminDashboard.css";
 import {
     House, Bell, BookOpen, BookText, User, Clock, PanelLeftRightDashed,
     ReceiptIndianRupee, ChartColumn, Calendar, MessageSquare, Bus, Contact,
@@ -12,7 +12,7 @@ import {
     IndianRupee, Contact2, Proportions
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../../../components/layout/Sidebar/Sidebar';
 import Header from '../../../components/layout/Header/Header';
 import Footer from '../../../components/layout/Footer/Footer';
 

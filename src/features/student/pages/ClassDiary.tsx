@@ -1,8 +1,8 @@
 import { BookText, ArrowLeft } from "lucide-react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import "../styling/classDiary.css"
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import "../styles/classDiary.css"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

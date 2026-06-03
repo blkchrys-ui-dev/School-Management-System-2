@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import '../styling/attendance.css'
+import Header from "../../../components/layout/Header/Header";
+import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
+import Footer from "../../../components/layout/Footer/Footer";
+import '../styles/attendance.css'
 import { useState, useEffect } from "react";
 import {
     ArrowLeft, Calendar as CalendarIcon, User, CheckCircle,
@@ -10,7 +10,7 @@ import {
     Info, Award, Clock, ThumbsUp, Activity
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "../styling/style.css";
+import "../styles/style.css";
 
 const Attendance = () => {
     const navigate = useNavigate();

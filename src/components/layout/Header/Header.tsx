@@ -11,8 +11,8 @@ import {
 
 import { useAuth } from '../../../context/AuthContext';
 
-import '../styling/header.css';
-import schoolLogo from '../assets/download.jpg';
+import './header.css';
+import schoolLogo from '../../../assets/images/school-logo.jpg.jpg';
 
 // ─────────────────────────────────────────────
 // Types
