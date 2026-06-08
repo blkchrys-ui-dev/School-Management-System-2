@@ -523,7 +523,7 @@ const AddAcademicCalendar = () => {
                             <div className="acal-field"><label>Date *</label><input type="date" name="date" value={mgmtFormData.date} onChange={handleMgmtFormChange} required /></div>
                             <div className="acal-field"><label>Type *</label><select name="type" value={mgmtFormData.type} onChange={handleMgmtFormChange}><option value="event">Event</option><option value="holiday">Holiday</option><option value="exam">Exam</option><option value="ptm">PTM</option></select></div>
                             <div className="acal-field"><label>Title *</label><input type="text" name="title" value={mgmtFormData.title} onChange={handleMgmtFormChange} required /></div>
-                            <div className="acal-field"><label>Description *</label><textarea name="description" value={mgmtFormData.description} onChange={handleMgmtFormChange} rows="3" required /></div>
+                            <div className="acal-field"><label>Description *</label><textarea name="description" value={mgmtFormData.description} onChange={handleMgmtFormChange} rows={3} required /></div>
                             {mgmtFormData.type !== "holiday" && <div className="acal-field"><label>Time</label><input type="text" name="time" value={mgmtFormData.time} onChange={handleMgmtFormChange} placeholder="e.g., 9:00 AM - 12:00 PM" /></div>}
                             {mgmtFormData.type !== "holiday" && <div className="acal-field"><label>Venue</label><input type="text" name="venue" value={mgmtFormData.venue} onChange={handleMgmtFormChange} placeholder="e.g., Auditorium" /></div>}
                             <div className="acal-mgmt-actions">

@@ -474,7 +474,7 @@ const EditContactUs = () => {
                                         className="cu-map-input"
                                         value={editData.mapEmbedUrl}
                                         onChange={(e) => handleDetailChange('mapEmbedUrl', e.target.value)}
-                                        rows="3"
+                                        rows={3}
                                         placeholder="Paste Google Maps embed URL here..."
                                     />
                                 </div>
@@ -531,7 +531,7 @@ const EditContactUs = () => {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleInputChange}
-                                    rows="5"
+                                    rows={5}
                                     placeholder="Write your message here..."
                                     required
                                 ></textarea>

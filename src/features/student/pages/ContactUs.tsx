@@ -239,7 +239,7 @@ const ContactUs = () => {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleInputChange}
-                                    rows="5"
+                                    rows={5}
                                     placeholder="Write your message here..."
                                     required
                                 ></textarea>

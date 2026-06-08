@@ -238,7 +238,7 @@ const EditStudentProfile = () => {
                 // In real app, refetch from API
                 window.location.reload();
             } catch (err) {
-                setError("Could not reset form. Please try again.", err);
+                setError(`Could not reset form. Please try again. ${err instanceof Error ? err.message : ""}`.trim());
                 setLoading(false);
             }
         }

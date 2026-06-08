@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type DragEvent, type FormEvent } from "react";
 import {
     BookOpen, User, CalendarDays, Clock, ArrowLeft,
     Plus, X, Upload, FileText, AlertCircle
@@ -9,12 +9,35 @@ import Footer from "../../../components/layout/Footer/Footer";
 import '../styles/addhomework.css';
 import { useNavigate } from "react-router-dom";
 
+interface HomeworkAttachment {
+    id: number;
+    name: string;
+    size: string;
+    type: string;
+    file: File;
+    date: string;
+}
+
+interface HomeworkFormData {
+    subject: string;
+    teacher: string;
+    description: string;
+    assignedDate: string;
+    deadline: string;
+    class: string;
+    section: string;
+    maxMarks: string;
+    attachments: HomeworkAttachment[];
+}
+
+type HomeworkErrors = Partial<Record<keyof Omit<HomeworkFormData, "attachments" | "maxMarks">, string>>;
+
 const AddHomework = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
     // Form state
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<HomeworkFormData>({
         subject: "",
         teacher: "",
         description: "",
@@ -26,7 +49,7 @@ const AddHomework = () => {
         attachments: []
     });
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState<HomeworkErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [dragActive, setDragActive] = useState(false);
@@ -48,14 +71,14 @@ const AddHomework = () => {
     const sections = ["A", "B", "C", "D", "E"];
 
     // Handle form input changes
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value
         }));
         // Clear error when user types
-        if (errors[name]) {
+        if (errors[name as keyof HomeworkErrors]) {
             setErrors(prev => ({
                 ...prev,
                 [name]: ""
@@ -64,7 +87,7 @@ const AddHomework = () => {
     };
 
     // Handle subject selection
-    const handleSubjectSelect = (subject) => {
+    const handleSubjectSelect = (subject: string) => {
         setFormData(prev => ({
             ...prev,
             subject
@@ -78,12 +101,12 @@ const AddHomework = () => {
     };
 
     // Handle file upload
-    const handleFileUpload = (e) => {
-        const files = Array.from(e.target.files);
+    const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
+        const files = Array.from(e.target.files ?? []);
         addFiles(files);
     };
 
-    const addFiles = (files) => {
+    const addFiles = (files: File[]) => {
         const newFiles = files.map(file => ({
             id: Date.now() + Math.random(),
             name: file.name,
@@ -104,7 +127,7 @@ const AddHomework = () => {
     };
 
     // Format file size
-    const formatFileSize = (bytes) => {
+    const formatFileSize = (bytes: number): string => {
         if (bytes === 0) return "0 Bytes";
         const k = 1024;
         const sizes = ["Bytes", "KB", "MB", "GB"];
@@ -113,7 +136,7 @@ const AddHomework = () => {
     };
 
     // Remove attachment
-    const removeAttachment = (id) => {
+    const removeAttachment = (id: number) => {
         setFormData(prev => ({
             ...prev,
             attachments: prev.attachments.filter(file => file.id !== id)
@@ -121,7 +144,7 @@ const AddHomework = () => {
     };
 
     // Drag and drop handlers
-    const handleDrag = (e) => {
+    const handleDrag = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
         if (e.type === "dragenter" || e.type === "dragover") {
@@ -131,7 +154,7 @@ const AddHomework = () => {
         }
     };
 
-    const handleDrop = (e) => {
+    const handleDrop = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
         setDragActive(false);
@@ -141,8 +164,8 @@ const AddHomework = () => {
     };
 
     // Form validation
-    const validateForm = () => {
-        const newErrors = {};
+    const validateForm = (): boolean => {
+        const newErrors: HomeworkErrors = {};
 
         if (!formData.subject.trim()) {
             newErrors.subject = "Subject is required";
@@ -175,7 +198,7 @@ const AddHomework = () => {
     };
 
     // Handle form submission
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!validateForm()) {
@@ -350,7 +373,7 @@ const AddHomework = () => {
                                         onChange={handleInputChange}
                                         className={`hw-form-textarea ${errors.description ? 'hw-input-error' : ''}`}
                                         placeholder="Enter homework description, instructions, and requirements..."
-                                        rows="5"
+                                        rows={5}
                                     />
                                     <span className="hw-char-count">{formData.description.length} characters</span>
                                     {errors.description && <span className="hw-error-text"><AlertCircle size={12} /> {errors.description}</span>}

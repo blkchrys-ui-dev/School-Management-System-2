@@ -569,9 +569,9 @@ const PrincipalDash = () => {
                                                     </td>
                                                     <td>
                                                         <div className="action-buttons">
-                                                            <Eye size={18} className="action-icon" title="View" />
-                                                            <Edit size={18} className="action-icon" title="Edit" />
-                                                            <Trash2 size={18} className="action-icon" title="Delete" />
+                                                            <Eye size={18} className="action-icon" aria-label="View" />
+                                                            <Edit size={18} className="action-icon" aria-label="Edit" />
+                                                            <Trash2 size={18} className="action-icon" aria-label="Delete" />
                                                         </div>
                                                     </td>
                                                 </tr>

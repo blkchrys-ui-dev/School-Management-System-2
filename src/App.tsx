@@ -24,11 +24,15 @@ const PROTECTED_ROUTES = [
 ];
 
 const App = (): ReactElement => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
 
   const defaultRedirect = isAuthenticated && user
     ? DASHBOARD_MAP[user.role]
     : '/login';
+
+  if (isLoading) {
+    return <PageLoader />;
+  }
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -37,8 +41,8 @@ const App = (): ReactElement => {
           path="/"
           element={isAuthenticated ? <Navigate to={defaultRedirect} replace /> : <Login />}
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/login" element={isAuthenticated ? <Navigate to={defaultRedirect} replace /> : <Login />} />
+        <Route path="/forgot-password" element={isAuthenticated ? <Navigate to={defaultRedirect} replace /> : <ForgotPassword />} />
 
         {PROTECTED_ROUTES.map(route => (
           <Route
