@@ -13,9 +13,13 @@ import { Link } from "react-router-dom";
 import Header from "../../../components/layout/Header/Header";
 import Sidebar from "../../../components/layout/Sidebar/Sidebar";
 import Footer from "../../../components/layout/Footer/Footer";
+import { useAuth } from "../../../context/AuthContext";
 
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(false);
+    const { user } = useAuth();
+    const teacherName = user?.name ?? "Teacher";
+    const teacherSubject = user?.subject ?? "All Subjects";
 
     // Today's classes
     const todayClasses = [
@@ -43,8 +47,8 @@ const TeacherDashboard = () => {
                                     <GraduationCap size={28} />
                                 </div>
                                 <div className="td-welcome-text">
-                                    <h1>Welcome back, <span>Prof. Khan!</span></h1>
-                                    <p>Have a great teaching day ahead</p>
+                                    <h1>Welcome back, <span>{teacherName}!</span></h1>
+                                    <p>{teacherSubject} • Have a great teaching day ahead</p>
                                 </div>
                             </div>
                             <div className="td-welcome-right">
@@ -117,7 +121,7 @@ const TeacherDashboard = () => {
                                             <p>Your classes for today</p>
                                         </div>
                                     </div>
-                                    <Link to="/timetable" className="td-view-all-btn">
+                                    <Link to="/teacher/timetable" className="td-view-all-btn">
                                         View Full Schedule
                                         <ArrowRight size={16} />
                                     </Link>
@@ -191,7 +195,7 @@ const TeacherDashboard = () => {
                                 </div>
 
                                 <div className="td-quick-grid">
-                                    <Link to="/addhomework" className="td-quick-card">
+                                    <Link to="/teacher/add-homework" className="td-quick-card">
                                         <div className="td-quick-icon homework">
                                             <BookOpen size={20} />
                                         </div>
@@ -202,7 +206,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/attendanceteach" className="td-quick-card">
+                                    <Link to="/teacher/attendance" className="td-quick-card">
                                         <div className="td-quick-icon attendance">
                                             <CheckCircle size={20} />
                                         </div>
@@ -213,7 +217,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/adddiary" className="td-quick-card">
+                                    <Link to="/teacher/add-diary" className="td-quick-card">
                                         <div className="td-quick-icon diary">
                                             <FileText size={20} />
                                         </div>
@@ -224,7 +228,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/noticeteacher" className="td-quick-card">
+                                    <Link to="/teacher/notices" className="td-quick-card">
                                         <div className="td-quick-icon notice">
                                             <ClipboardList size={20} />
                                         </div>
@@ -234,7 +238,7 @@ const TeacherDashboard = () => {
                                         </div>
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
-                                    <Link to="/addstudent" className="td-quick-card">
+                                    <Link to="/teacher/add-student" className="td-quick-card">
                                         <div className="td-quick-icon notice">
                                             <User size={20} />
                                         </div>
@@ -244,7 +248,7 @@ const TeacherDashboard = () => {
                                         </div>
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
-                                    <Link to="/editstudentprofile" className="td-quick-card">
+                                    <Link to="/teacher/add-student" className="td-quick-card">
                                         <div className="td-quick-icon notice">
                                             <User size={20} />
                                         </div>
@@ -255,7 +259,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/settimetable" className="td-quick-card">
+                                    <Link to="/teacher/timetable" className="td-quick-card">
                                         <div className="td-quick-icon timetable">
                                             <ChartColumn size={20} />
                                         </div>
@@ -266,7 +270,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/addacademicreport" className="td-quick-card">
+                                    <Link to="/teacher/academic-report" className="td-quick-card">
                                         <div className="td-quick-icon report">
                                             <Award size={20} />
                                         </div>
@@ -277,7 +281,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/addacademiccalendar" className="td-quick-card">
+                                    <Link to="/teacher/academic-calendar" className="td-quick-card">
                                         <div className="td-quick-icon calendar-q">
                                             <Calendar size={20} />
                                         </div>
@@ -288,7 +292,7 @@ const TeacherDashboard = () => {
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
 
-                                    <Link to="/managefeedetails" className="td-quick-card">
+                                    <Link to="/teacher/fees" className="td-quick-card">
                                         <div className="td-quick-icon fee">
                                             <ReceiptIndianRupee size={20} />
                                         </div>
@@ -298,7 +302,7 @@ const TeacherDashboard = () => {
                                         </div>
                                         <ChevronRight size={16} className="td-quick-arrow" />
                                     </Link>
-                                    <Link to="/editcontactdetails" className="td-quick-card">
+                                    <Link to="/teacher/contact" className="td-quick-card">
                                         <div className="td-quick-icon fee">
                                             <User2Icon size={16} />
                                         </div>

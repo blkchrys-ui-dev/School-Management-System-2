@@ -10,8 +10,6 @@ import {
   ReceiptIndianRupee,
   ChartColumn,
   Calendar,
-  MessageSquare,
-  Bus,
   Contact,
   ClipboardList,
   UserCircle,
@@ -26,11 +24,6 @@ import './sidebar.css';
 
 interface NavItem {
   to: string;
-  icon: ReactNode;
-  label: string;
-}
-
-interface PlaceholderItem {
   icon: ReactNode;
   label: string;
 }
@@ -101,17 +94,6 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
-// Future Features
-const PLACEHOLDER_ITEMS: PlaceholderItem[] = [
-  {
-    icon: <MessageSquare size={18} />,
-    label: 'Feedback',
-  },
-  {
-    icon: <Bus size={18} />,
-    label: 'Bus Tracking',
-  },
-];
 
 // ─────────────────────────────────────────────
 // Student Sidebar Component
@@ -199,21 +181,6 @@ const StudentSidebar = ({
             </li>
           ))}
 
-          {/* Future Features */}
-          {PLACEHOLDER_ITEMS.map((item) => (
-            <li
-              key={item.label}
-              className="menu-link menu-link-disabled"
-              aria-disabled="true"
-              title="Coming Soon"
-            >
-              {item.icon}
-
-              <span>
-                {item.label}
-              </span>
-            </li>
-          ))}
 
         </ul>
       </nav>
