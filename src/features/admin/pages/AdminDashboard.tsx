@@ -20,6 +20,10 @@ const PrincipalDash = () => {
     const [open, setOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('overview');
 
+    const handleExportReport = () => {
+        window.print();
+    };
+
     // Statistics Data
     const stats = [
         { id: 1, title: "Total Students", value: "1,284", change: "+12%", icon: Users, color: "primary", bgColor: "#eff6ff", iconColor: "#3b82f6" },
@@ -221,7 +225,7 @@ const PrincipalDash = () => {
                                                     <DollarSign size={20} />
                                                     <h3>Fee Collection</h3>
                                                 </div>
-                                                <Link to="/managefeedetails" className="principal-view-btn">
+                                                <Link to="/admin/fees" className="principal-view-btn">
                                                     View Details <ChevronRight size={16} />
                                                 </Link>
                                             </div>
@@ -262,7 +266,7 @@ const PrincipalDash = () => {
                                                     <CalendarDays size={20} />
                                                     <h3>Upcoming Events</h3>
                                                 </div>
-                                                <Link to="/addacademiccalendar" className="principal-view-link">
+                                                <Link to="/admin/academic-calendar" className="principal-view-link">
                                                     View All <ChevronRight size={16} />
                                                 </Link>
                                             </div>
@@ -327,7 +331,7 @@ const PrincipalDash = () => {
                                 <div className="principal-quick-actions">
                                     <h3>Quick Actions</h3>
                                     <div className="principal-quick-grid">
-                                        <Link to="/addstudent" className="principal-quick-card">
+                                        <Link to="/admin/students" className="principal-quick-card">
                                             <div className="quick-icon student-add">
                                                 <UserPlus size={24} />
                                             </div>
@@ -338,7 +342,7 @@ const PrincipalDash = () => {
                                             <ChevronRight size={16} />
                                         </Link>
 
-                                        <Link to="/addteacher" className="principal-quick-card">
+                                        <Link to="/admin/add-teacher" className="principal-quick-card">
                                             <div className="quick-icon teacher-add">
                                                 <UserCheck size={24} />
                                             </div>
@@ -349,7 +353,7 @@ const PrincipalDash = () => {
                                             <ChevronRight size={16} />
                                         </Link>
 
-                                        <Link to="/settimetable" className="principal-quick-card">
+                                        <Link to="/admin/timetable" className="principal-quick-card">
                                             <div className="quick-icon class-add">
                                                 <GraduationCap size={24} />
                                             </div>
@@ -360,7 +364,7 @@ const PrincipalDash = () => {
                                             <ChevronRight size={16} />
                                         </Link>
 
-                                        <Link to="/generatereport" className="principal-quick-card">
+                                        <Link to="/admin/academic-report" className="principal-quick-card">
                                             <div className="quick-icon report-gen">
                                                 <FileText size={24} />
                                             </div>
@@ -386,7 +390,7 @@ const PrincipalDash = () => {
                                 </div>
 
                                 <div className="principal-academics-grid">
-                                    <Link to="/noticeteacher" className="principal-academic-card">
+                                    <Link to="/admin/notices" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <ClipboardList size={28} />
                                         </div>
@@ -394,7 +398,7 @@ const PrincipalDash = () => {
                                         <p>Manage notices</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/addhomework" className="principal-academic-card">
+                                    <Link to="/admin/homework" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <BookOpen size={28} />
                                         </div>
@@ -402,7 +406,7 @@ const PrincipalDash = () => {
                                         <p>Manage HomeWork</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/syllabus" className="principal-academic-card">
+                                    <Link to="/admin/academic-report" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <ClipboardList size={28} />
                                         </div>
@@ -410,7 +414,7 @@ const PrincipalDash = () => {
                                         <p>Manage diary</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/studentprofile" className="principal-academic-card">
+                                    <Link to="/admin/students" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <User2 size={28} />
                                         </div>
@@ -418,7 +422,7 @@ const PrincipalDash = () => {
                                         <p>Manage student profile</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/editstudentprofile" className="principal-academic-card">
+                                    <Link to="/admin/students" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <User2 size={28} />
                                         </div>
@@ -426,7 +430,7 @@ const PrincipalDash = () => {
                                         <p>Manage student details</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/settimetable" className="principal-academic-card">
+                                    <Link to="/admin/timetable" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <Calendar size={28} />
                                         </div>
@@ -434,7 +438,7 @@ const PrincipalDash = () => {
                                         <p>Manage class schedules and teacher assignments</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/attendanceteach" className="principal-academic-card">
+                                    <Link to="/admin/attendance" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <PanelLeftRightDashed size={28} />
                                         </div>
@@ -442,7 +446,7 @@ const PrincipalDash = () => {
                                         <p>Manage attendance of students </p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/managefeedetails" className="principal-academic-card">
+                                    <Link to="/admin/fees" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <IndianRupee size={28} />
                                         </div>
@@ -450,7 +454,7 @@ const PrincipalDash = () => {
                                         <p>Manage fee details record</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/addacademiccalendar" className="principal-academic-card">
+                                    <Link to="/admin/academic-calendar" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <Calendar1Icon size={28} />
                                         </div>
@@ -458,7 +462,7 @@ const PrincipalDash = () => {
                                         <p>Plan holidays, events, and important dates</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/addacademicreport" className="principal-academic-card">
+                                    <Link to="/admin/academic-report" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <Proportions size={28} />
                                         </div>
@@ -466,7 +470,7 @@ const PrincipalDash = () => {
                                         <p>Manage academic report</p>
                                         <button className="academic-btn">Manage</button>
                                     </Link>
-                                    <Link to="/editcontactdetails" className="principal-academic-card">
+                                    <Link to="/admin/contact" className="principal-academic-card">
                                         <div className="academic-icon">
                                             <Contact2 size={28} />
                                         </div>
@@ -486,7 +490,7 @@ const PrincipalDash = () => {
                                         <h2>Student Management</h2>
                                         <p>Manage all students, view profiles, and track performance</p>
                                     </div>
-                                    <Link to={'/addstudent'}>
+                                    <Link to={'/admin/students'}>
                                         <button className="principal-primary-btn">
                                             <Plus size={18} /> Add New Student
                                         </button>
@@ -590,7 +594,7 @@ const PrincipalDash = () => {
                                         <h2>Teacher Management</h2>
                                         <p>Manage faculty, assign subjects, and track performance</p>
                                     </div>
-                                    <Link to={'/addteacher'}>
+                                    <Link to={'/admin/add-teacher'}>
                                         <button className="principal-primary-btn">
                                             <Plus size={18} /> Add New Teacher
                                         </button>
@@ -652,7 +656,7 @@ const PrincipalDash = () => {
                                         <h2>Finance Management</h2>
                                         <p>Track fee collection, expenses, and generate reports</p>
                                     </div>
-                                    <button className="principal-primary-btn">
+                                    <button className="principal-primary-btn" onClick={handleExportReport}>
                                         <Download size={18} /> Export Report
                                     </button>
                                 </div>
