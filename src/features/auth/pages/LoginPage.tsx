@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { GraduationCap, LockKeyhole, UserRound, UsersRound } from 'lucide-react';
 
 import Button from '../../../components/ui/Button/Button';
-import { useLogin } from '../hooks/useLogin';
+import { DEMO_USERS, useLogin } from '../hooks/useLogin';
 import type { UserRole } from '../../../types/auth.types';
 import '../auth.css';
 
@@ -14,11 +14,23 @@ const ROLES: Array<{ value: UserRole; label: string }> = [
 
 const LoginPage = (): React.ReactElement => {
   const { submitLogin, isLoading, error } = useLogin();
-  const [formData, setFormData] = useState({ userId: 'demo', password: 'demo123', role: 'student' as UserRole });
+  const [formData, setFormData] = useState({
+    userId: DEMO_USERS.student.userId,
+    password: DEMO_USERS.student.password,
+    role: 'student' as UserRole,
+  });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     void submitLogin(formData);
+  };
+
+  const handleRoleSelect = (role: UserRole): void => {
+    setFormData({
+      userId: DEMO_USERS[role].userId,
+      password: DEMO_USERS[role].password,
+      role,
+    });
   };
 
   return (
@@ -37,7 +49,7 @@ const LoginPage = (): React.ReactElement => {
       <section className="auth-card" aria-labelledby="login-title">
         <div className="auth-card__icon"><UsersRound size={30} /></div>
         <h2 id="login-title">Welcome back</h2>
-        <p>Use demo credentials or connect your backend with VITE_API_BASE_URL.</p>
+        <p>Use the role-specific demo credentials below or connect your backend with VITE_API_BASE_URL.</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
@@ -54,10 +66,16 @@ const LoginPage = (): React.ReactElement => {
             <span>Login as</span>
             <div className="auth-role-grid">
               {ROLES.map(role => (
-                <button key={role.value} type="button" className={formData.role === role.value ? 'active' : ''} onClick={() => setFormData(prev => ({ ...prev, role: role.value }))}>{role.label}</button>
+                <button key={role.value} type="button" className={formData.role === role.value ? 'active' : ''} onClick={() => handleRoleSelect(role.value)}>{role.label}</button>
               ))}
             </div>
           </label>
+
+          <div className="auth-demo-hint" aria-live="polite">
+            <span>Demo login:</span>
+            <strong>{DEMO_USERS[formData.role].userId}</strong>
+            <code>{DEMO_USERS[formData.role].password}</code>
+          </div>
 
           {error && <div className="auth-error">{error}</div>}
 

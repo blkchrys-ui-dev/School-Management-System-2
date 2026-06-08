@@ -4,7 +4,30 @@ import Sidebar from "../../../components/layout/Sidebar/Sidebar";
 import Footer from "../../../components/layout/Footer/Footer";
 import "../styles/adddiary.css"
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+
+interface DiaryEntry {
+    id: number;
+    date: string;
+    dateDisplay: string;
+    dayName: string;
+    subject: string;
+    desc: string;
+    teacher: string;
+    timeFrom: string;
+    timeTo: string;
+    timeDisplay: string;
+    class: string;
+    section: string;
+    createdAt: string;
+}
+
+interface GroupedDiaryEntries {
+    date: string;
+    dateDisplay: string;
+    dayName: string;
+    entries: DiaryEntry[];
+}
 
 const AddDiary = () => {
     const navigate = useNavigate();
@@ -37,7 +60,7 @@ const AddDiary = () => {
     const teacherName = "Mr. Khan"; // This would come from auth context
 
     // Diary entries that teacher has added (initially some sample data)
-    const [diaryEntries, setDiaryEntries] = useState([
+    const [diaryEntries, setDiaryEntries] = useState<DiaryEntry[]>([
         {
             id: 1,
             date: "2026-04-16",
@@ -116,7 +139,7 @@ const AddDiary = () => {
     ]);
 
     // Get unique dates from entries
-    const getDateString = (date) => {
+    const getDateString = (date: Date | string): string => {
         const d = new Date(date);
         const year = d.getFullYear();
         const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -136,8 +159,8 @@ const AddDiary = () => {
     const last7DaysStr = getDateString(last7Days);
 
     // Group entries by date
-    const groupEntriesByDate = (entries) => {
-        const grouped = {};
+    const groupEntriesByDate = (entries: DiaryEntry[]): GroupedDiaryEntries[] => {
+        const grouped: Record<string, GroupedDiaryEntries> = {};
         entries.forEach(entry => {
             if (!grouped[entry.date]) {
                 grouped[entry.date] = {
@@ -166,7 +189,7 @@ const AddDiary = () => {
     const filteredGroupedData = getFilteredEntries();
 
     // Handle form input changes
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -175,7 +198,7 @@ const AddDiary = () => {
     };
 
     // Format time for display
-    const formatTimeDisplay = (time) => {
+    const formatTimeDisplay = (time: string): string => {
         const [hours, minutes] = time.split(':');
         const hour = parseInt(hours);
         const ampm = hour >= 12 ? 'PM' : 'AM';
@@ -184,7 +207,7 @@ const AddDiary = () => {
     };
 
     // Submit new diary entry
-    const handleSubmitEntry = (e) => {
+    const handleSubmitEntry = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!formData.subject || !formData.description || !formData.timeFrom || !formData.timeTo) {
@@ -404,7 +427,7 @@ const AddDiary = () => {
                                             value={formData.description}
                                             onChange={handleInputChange}
                                             placeholder="Describe what was taught, activities done, homework assigned, etc..."
-                                            rows="4"
+                                            rows={4}
                                             required
                                         />
                                     </div>

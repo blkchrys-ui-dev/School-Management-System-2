@@ -218,7 +218,7 @@ const NoticeTeacher = () => {
             if (!dateString) return 'Date not set';
             const date = new Date(dateString);
             if (isNaN(date.getTime())) return dateString;
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
             return date.toLocaleDateString(undefined, options);
         } catch (error) {
             console.error("Error in formatDate:", error);
@@ -398,7 +398,7 @@ const NoticeTeacher = () => {
                                     name="description"
                                     value={formData.description}
                                     onChange={handleInputChange}
-                                    rows="4"
+                                    rows={4}
                                     placeholder="Enter detailed notice description"
                                 />
                             </div>

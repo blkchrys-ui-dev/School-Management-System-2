@@ -2,7 +2,7 @@ import Header from "../../../components/layout/Header/Header";
 import Sidebar from "../../../components/layout/Sidebar/StudentSidebar";
 import Footer from "../../../components/layout/Footer/Footer";
 import '../styles/attendance.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactElement } from "react";
 import {
     ArrowLeft, Calendar as CalendarIcon, User, CheckCircle,
     XCircle, Moon, TrendingUp, ChevronLeft, ChevronRight,
@@ -12,19 +12,42 @@ import {
 import { useNavigate } from "react-router-dom";
 import "../styles/style.css";
 
+type AttendanceStatus = "present" | "absent" | "holiday" | "working";
+
+interface AttendanceRecord {
+    status: AttendanceStatus;
+    dayType: "working" | "weekend";
+}
+
+interface AttendanceData {
+    year: number;
+    month: number;
+    totalDays: number;
+    presentDays: number;
+    absentDays: number;
+    holidayDays: number;
+    attendancePercentage: number;
+    records: Record<string, AttendanceRecord>;
+}
+
+interface SelectedAttendanceDate {
+    date: string;
+    status: AttendanceStatus;
+}
+
 const Attendance = () => {
     const navigate = useNavigate();
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [showMonthDropdown, setShowMonthDropdown] = useState(false);
     const [showYearDropdown, setShowYearDropdown] = useState(false);
-    const [viewMode, setViewMode] = useState("calendar");
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [viewMode, setViewMode] = useState<"calendar" | "list" | "summary">("calendar");
+    const [selectedDate, setSelectedDate] = useState<SelectedAttendanceDate | null>(null);
     const [showToast, setShowToast] = useState(false);
     const [toastMessage, setToastMessage] = useState("");
-    const [toastType, setToastType] = useState("success");
+    const [toastType, setToastType] = useState<"success" | "error" | "info">("success");
     const [open, setOpen] = useState(false);
-    const [attendanceData, setAttendanceData] = useState({
+    const [attendanceData, setAttendanceData] = useState<AttendanceData>({
         year: 2024,
         month: 0,
         totalDays: 0,
@@ -45,9 +68,9 @@ const Attendance = () => {
     const years = Array.from({ length: 7 }, (_, i) => currentYearActual - 3 + i);
 
     // Sample attendance data generator based on selected month/year
-    const getAttendanceData = () => {
+    const getAttendanceData = (): AttendanceData => {
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        const records = {};
+        const records: Record<string, AttendanceRecord> = {};
         let presentCount = 0;
         let absentCount = 0;
         let holidayCount = 0;
@@ -74,7 +97,7 @@ const Attendance = () => {
         }
 
         const totalDays = presentCount + absentCount;
-        const attendancePercentage = totalDays > 0 ? ((presentCount / totalDays) * 100).toFixed(1) : 0;
+        const attendancePercentage = totalDays > 0 ? Number(((presentCount / totalDays) * 100).toFixed(1)) : 0;
 
         return {
             year: currentYear,
@@ -83,7 +106,7 @@ const Attendance = () => {
             presentDays: presentCount,
             absentDays: absentCount,
             holidayDays: holidayCount,
-            attendancePercentage: parseFloat(attendancePercentage),
+            attendancePercentage,
             records: records
         };
     };
@@ -94,15 +117,15 @@ const Attendance = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentMonth, currentYear]);
 
-    const getDaysInMonth = (year, month) => {
+    const getDaysInMonth = (year: number, month: number): number => {
         return new Date(year, month + 1, 0).getDate();
     };
 
-    const getFirstDayOfMonth = (year, month) => {
+    const getFirstDayOfMonth = (year: number, month: number): number => {
         return new Date(year, month, 1).getDay();
     };
 
-    const getStatusColor = (status) => {
+    const getStatusColor = (status: AttendanceStatus): string => {
         switch (status) {
             case "present": return "#10b981";
             case "absent": return "#ef4444";
@@ -111,7 +134,7 @@ const Attendance = () => {
         }
     };
 
-    const getStatusLabel = (status) => {
+    const getStatusLabel = (status: AttendanceStatus): string => {
         switch (status) {
             case "present": return "P";
             case "absent": return "A";
@@ -120,7 +143,7 @@ const Attendance = () => {
         }
     };
 
-    const getStatusFullName = (status) => {
+    const getStatusFullName = (status: AttendanceStatus): string => {
         switch (status) {
             case "present": return "Present";
             case "absent": return "Absent";
@@ -129,12 +152,12 @@ const Attendance = () => {
         }
     };
 
-    const handleDateClick = (dateStr, status) => {
+    const handleDateClick = (dateStr: string, status: AttendanceStatus) => {
         setSelectedDate({ date: dateStr, status });
         setTimeout(() => setSelectedDate(null), 3000);
     };
 
-    const showNotification = (message, type = "success") => {
+    const showNotification = (message: string, type: "success" | "error" | "info" = "success") => {
         setToastMessage(message);
         setToastType(type);
         setShowToast(true);
@@ -169,14 +192,14 @@ const Attendance = () => {
         showNotification(`Switched to ${months[today.getMonth()]} ${today.getFullYear()}`, "success");
     };
 
-    const renderCalendar = () => {
+    const renderCalendar = (): ReactElement[] => {
         const daysInMonth = getDaysInMonth(currentYear, currentMonth);
         const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
         const today = new Date();
         const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
         const currentDate = today.getDate();
 
-        const calendarDays = [];
+        const calendarDays: ReactElement[] = [];
 
         // Add empty cells for days before month starts
         for (let i = 0; i < firstDay; i++) {
@@ -187,7 +210,7 @@ const Attendance = () => {
         for (let day = 1; day <= daysInMonth; day++) {
             const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             const record = attendanceData.records[dateStr];
-            const status = record ? record.status : "working";
+            const status: AttendanceStatus = record ? record.status : "working";
             const isToday = isCurrentMonth && day === currentDate;
             const isSelected = selectedDate?.date === dateStr;
 
@@ -208,13 +231,13 @@ const Attendance = () => {
         return calendarDays;
     };
 
-    const handleMonthSelect = (monthIndex) => {
+    const handleMonthSelect = (monthIndex: number) => {
         setCurrentMonth(monthIndex);
         setShowMonthDropdown(false);
         showNotification(`Switched to ${months[monthIndex]} ${currentYear}`, "info");
     };
 
-    const handleYearSelect = (year) => {
+    const handleYearSelect = (year: number) => {
         setCurrentYear(year);
         setShowYearDropdown(false);
         showNotification(`Switched to ${months[currentMonth]} ${year}`, "info");
